@@ -30,11 +30,9 @@ const OPEN_ID = "open";
 export const resourceAliasMap: Record<string, string> = {
   cmd: "Terminal",
   code: "MonacoEditor",
-  dos: "JSDOS",
   explorer: "FileExplorer",
   monaco: "MonacoEditor",
   mspaint: "Paint",
-  vlc: "VideoPlayer",
 };
 
 const MESSAGE = `Type the name of a program, folder, document, or Internet resource, and ${PACKAGE_DATA.alias} will open it for you.`;

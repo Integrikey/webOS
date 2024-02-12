@@ -7,7 +7,6 @@ import {
 import { Arrow, Refresh, Stop } from "components/apps/Browser/NavigationIcons";
 import StyledBrowser from "components/apps/Browser/StyledBrowser";
 import {
-  DINO_GAME,
   HOME_PAGE,
   LOCAL_HOST,
   NOT_FOUND,
@@ -104,13 +103,7 @@ const Browser: FC<ComponentProcessProps> = ({ id }) => {
         if (isHtml) setSrcDoc((await readFile(addressInput)).toString());
         setIcon(id, processDirectory.Browser.icon);
 
-        if (addressInput.toLowerCase().startsWith(DINO_GAME.url)) {
-          changeIframeWindowLocation(
-            `${window.location.origin}${DINO_GAME.path}`,
-            contentWindow
-          );
-          prependFileToTitle(`${DINO_GAME.url}/`);
-        } else if (!isHtml) {
+	if (!isHtml) {
           const processedUrl = await getUrlOrSearch(addressInput);
 
           if (

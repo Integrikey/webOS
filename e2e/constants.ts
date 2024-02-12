@@ -189,29 +189,17 @@ export const START_BUTTON_MENU_ITEMS = [
 export const START_MENU_APPS = [
   /^Browser$/,
   /^DevTools$/,
-  /^IRC$/,
   /^Marked$/,
   /^Monaco Editor$/,
   /^Paint$/,
-  /^PDF$/,
+  /^PDF Reader$/,
   /^Photo Viewer$/,
-  /^Stable Diffusion$/,
   /^Terminal$/,
-  /^TinyMCE$/,
   /^Video Player$/,
   /^Vim$/,
-  /^Webamp$/,
 ];
 
 export const START_MENU_FOLDERS = {
-  Emulators: [
-    /^BoxedWine$/,
-    /^EmulatorJS$/,
-    /^js-dos$/,
-    /^Ruffle$/,
-    /^Virtual x86$/,
-  ],
-  Games: [/^ClassiCube$/, /^DX-Ball$/, /^Quake III Arena$/, /^Space Cadet$/],
 };
 
 export const TEST_APP_CONTAINER_APP = "Marked";
@@ -219,8 +207,8 @@ export const TEST_APP_CONTAINER_APP_TITLE = (file: string | null): string =>
   `${file || ""}.url - ${TEST_APP_CONTAINER_APP}`;
 
 export const TEST_APP = "FileExplorer";
-export const TEST_APP_TITLE = /^My PC$/;
-export const TEST_APP_TITLE_TEXT = "My PC";
+export const TEST_APP_TITLE = /^Critical Workstation$/;
+export const TEST_APP_TITLE_TEXT = "Critical Workstation";
 export const TEST_APP_ICON = /\/pc\.(webp|png)$/;
 
 export const TEST_DESKTOP_FILE = /^Public$/;
@@ -243,7 +231,7 @@ export const NEW_FILE_LABEL_TEXT = "New Text Document.txt";
 
 export const CLOCK_REGEX = /^(1[0-2]|0?[1-9])(?::[0-5]\d){2}\s?(AM|PM)$/;
 
-export const BASE_APP_TITLE = "daedalOS";
+export const BASE_APP_TITLE = "keystrikeOS";
 export const BASE_APP_FAVICON = /^\/favicon.ico$/;
 export const BASE_APP_FAVICON_TEXT = "/favicon.ico";
 
