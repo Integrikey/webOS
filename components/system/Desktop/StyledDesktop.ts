@@ -13,6 +13,14 @@ const StyledDesktop = styled.main<StyledDesktopProps>`
   position: fixed;
   width: 100vw;
 
+  @media (min-width: 768px) {
+    width: 67vw;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 75vw;
+  }
+
   #loading-status {
     background-color: #fff;
     border-radius: 10px;
