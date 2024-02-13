@@ -2,10 +2,13 @@ import styled from "styled-components";
 
 type StyledDesktopProps = {
   $height: number;
+  $isAttackerMode: boolean | unknown;
 };
 
 const StyledDesktop = styled.main<StyledDesktopProps>`
-  background-color: transparent;
+  background-size: 200% 100%;
+  background-image: ${({ $isAttackerMode }) => ($isAttackerMode ? "linear-gradient(to right, transparent 50%, #ef4444 50%)" : "linear-gradient(to right, transparent 50%, transparent 50%)")};
+  animation: ${({ $isAttackerMode }) => ($isAttackerMode ? 'slide-in .8s ease-in forwards' : 'slide-out .8s ease-out')};
   contain: strict;
   height: ${({ $height }) => ($height ? `${$height}px` : "100%")};
   inset: 0;
@@ -36,6 +39,7 @@ const StyledDesktop = styled.main<StyledDesktopProps>`
 
   > canvas {
     background-color: inherit;
+    mix-blend-mode: multiply;
     height: ${({ $height }) => ($height ? `${$height}px` : "100%")};
     left: 0;
     object-fit: cover;
@@ -43,6 +47,23 @@ const StyledDesktop = styled.main<StyledDesktopProps>`
     top: 0;
     width: 100%;
     z-index: -1;
+  }
+
+  @keyframes slide-in {
+    100% {
+      background-position-x: -100%;
+    }
+  }
+  
+  @keyframes slide-out {
+    0% {
+      background-position-x: 0%;
+      background-image: linear-gradient(to right, #ef4444 50%, transparent 50%);
+    }
+    100%{
+      background-position-x: 100%;
+      background-image: linear-gradient(to right, #ef4444 50%, transparent 50%);
+    }
   }
 `;
 

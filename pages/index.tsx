@@ -20,7 +20,9 @@ const Index = (): React.ReactElement => {
 
   return (
     <>
-      <Desktop>
+      <Desktop
+        isAttackerMode={isAttackerMode}
+      >
         <Taskbar />
         <AppsLoader />
       </Desktop>
