@@ -21,7 +21,7 @@ export const config: VantaWavesConfig = {
   saturation: 40,
   shininess: 35,
   waveHeight: 20,
-  waveSpeed: 0.25,
+  waveSpeed: 0.05,
   ww: 50,
 };
 
