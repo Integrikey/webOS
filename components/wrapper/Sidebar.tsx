@@ -84,14 +84,14 @@ const Sidebar: FC<SidebarProps> = ({
           <div
             className="leading-tight"
           >
-            <h1
+            <h2
               className={`
                 font-medium
                 ${isAttackerMode ? 'text-white' : 'text-gray-700'}
               `}
             >
               Keystrike
-            </h1>
+            </h2>
             <p
               className="text-sm text-gray-500"
             >

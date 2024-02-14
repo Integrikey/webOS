@@ -5,6 +5,7 @@ import AppsLoader from "components/system/Apps/AppsLoader";
 import Desktop from "components/system/Desktop";
 import Taskbar from "components/system/Taskbar";
 
+import Loading from "components/wrapper/Loading";
 import Sidebar from "components/wrapper/Sidebar";
 import AttackerOverlay from "components/wrapper/AttackerOverlay";
 import Lever from "components/wrapper/Lever";
@@ -17,6 +18,7 @@ import useUrlLoader from "hooks/useUrlLoader";
 import { useExtensionDisabler } from "hooks/useExtensionDisabler";
 
 const Index = (): React.ReactElement => {
+  const [isLoading, setIsLoading] = useState(true);
   const [isAttackerMode, setIsAttackerMode] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,35 +41,37 @@ const Index = (): React.ReactElement => {
   };
 
   return (
-    <div
-      onKeyDownCapture={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
-      className={isAttackerMode ? 'attacked' : ''}
-    >
-      <Desktop
-        isAttackerMode={isAttackerMode}
+    <>
+      {isLoading && <Loading setIsLoading={setIsLoading} />}
+      <div
+        onKeyDownCapture={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
+        className={isAttackerMode ? 'attacked' : ''}
       >
-        <Lever
+        <Desktop
+          isAttackerMode={isAttackerMode}
+        >
+          <Lever />
+          {isAttackerMode &&
+            <AttackerOverlay
+              notifyAnMoveToFinalStep={notifyAnMoveToFinalStep}
+            />
+          }
+          <Taskbar />
+          <AppsLoader />
+        </Desktop>
+        <Sidebar
+          isAttackerMode={isAttackerMode}
+          setIsAttackerMode={setIsAttackerMode}
+          activeStep={activeStep}
+          setActiveStep={setActiveStep}
+          setIsModalOpen={setIsModalOpen}
         />
-        {isAttackerMode &&
-          <AttackerOverlay
-            notifyAnMoveToFinalStep={notifyAnMoveToFinalStep}
-          />
-        }
-        <Taskbar />
-        <AppsLoader />
-      </Desktop>
-      <Sidebar
-        isAttackerMode={isAttackerMode}
-        setIsAttackerMode={setIsAttackerMode}
-        activeStep={activeStep}
-        setActiveStep={setActiveStep}
-        setIsModalOpen={setIsModalOpen}
-      />
-      <TryModal
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-      />
-    </div>
+        <TryModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
+      </div>
+    </>
   );
 };
 
