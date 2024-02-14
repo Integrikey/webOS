@@ -3,6 +3,7 @@ import OutlinedButton from '../wrapper/OutlinedButton';
 type SidebarProps = {
   isAttackerMode: boolean,
   setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>,
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
   activeStep: number,
   setActiveStep: React.Dispatch<React.SetStateAction<number>>
 };
@@ -24,13 +25,15 @@ type SidebarStepProps = {
 
 type SidebarCTAProps = {
   isAttackerMode: boolean,
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 const Sidebar: FC<SidebarProps> = ({
   isAttackerMode,
   setIsAttackerMode,
   activeStep,
-  setActiveStep
+  setActiveStep,
+  setIsModalOpen
 }): React.JSX.Element => {
   const steps = [
     {
@@ -114,6 +117,7 @@ const Sidebar: FC<SidebarProps> = ({
       </div>
       <SidebarCTA
         isAttackerMode={isAttackerMode}
+        setIsModalOpen={setIsModalOpen}
       />
     </aside>
   );
@@ -188,7 +192,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
   )
 }
 
-export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode }) => {
+export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode, setIsModalOpen }) => {
   return (
     <div
       className="grid gap-1 justify-items-start"
@@ -214,7 +218,7 @@ export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode }) => {
         text="Request a demo"
         isModalTrigger={true}
         isAttackerMode={isAttackerMode}
-        action={() => console.log('test')}
+        action={() => setIsModalOpen(true)}
       />
     </div>
   )

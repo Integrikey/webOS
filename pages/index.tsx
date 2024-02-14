@@ -8,6 +8,7 @@ import Taskbar from "components/system/Taskbar";
 import Sidebar from "components/wrapper/Sidebar";
 import AttackerOverlay from "components/wrapper/AttackerOverlay";
 import Lever from "components/wrapper/Lever";
+import TryModal from "components/wrapper/TryModal";
 
 import useGlobalErrorHandler from "hooks/useGlobalErrorHandler";
 import useGlobalKeyboardShortcuts from "hooks/useGlobalKeyboardShortcuts";
@@ -18,6 +19,7 @@ import { useExtensionDisabler } from "hooks/useExtensionDisabler";
 const Index = (): React.ReactElement => {
   const [isAttackerMode, setIsAttackerMode] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useIFrameFocuser();
   useUrlLoader();
@@ -59,6 +61,11 @@ const Index = (): React.ReactElement => {
         setIsAttackerMode={setIsAttackerMode}
         activeStep={activeStep}
         setActiveStep={setActiveStep}
+        setIsModalOpen={setIsModalOpen}
+      />
+      <TryModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
       />
     </div>
   );
