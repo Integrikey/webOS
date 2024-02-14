@@ -38,7 +38,10 @@
     "*.{js,ts,tsx}": "eslint --fix"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@monaco-editor/loader": "^1.4.0",
+    "@mui/material": "^5.15.10",
     "@panzoom/panzoom": "^4.5.1",
     "@prettier/plugin-xml": "^3.2.2",
     "@wasmer/wasm-transformer": "^0.12.0",
@@ -69,6 +72,7 @@
     "print-js": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "react-rnd": "^10.4.1",
     "react-toastify": "^10.0.4",
     "resedit": "^2.0.0",
