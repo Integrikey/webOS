@@ -21,6 +21,7 @@ const Desktop: FC = ({ isAttackerMode, children }) => {
         hideScrolling
         isDesktop
         loadIconsImmediately
+        isAttackerMode={isAttackerMode}
       />
       {children}
     </StyledDesktop>

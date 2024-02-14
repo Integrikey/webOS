@@ -1,10 +1,10 @@
-import { useState } from 'react';
-
-import OutlinedButton from '../wrapper/OutlinedButton'
+import OutlinedButton from '../wrapper/OutlinedButton';
 
 type SidebarProps = {
   isAttackerMode: boolean,
-  setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>
+  setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>,
+  activeStep: number,
+  setActiveStep: React.Dispatch<React.SetStateAction<number>>
 };
 
 type Step = {
@@ -24,10 +24,10 @@ type SidebarStepProps = {
 
 const Sidebar: FC<SidebarProps> = ({
   isAttackerMode,
-  setIsAttackerMode
+  setIsAttackerMode,
+  activeStep,
+  setActiveStep
 }): React.JSX.Element => {
-  const [activeStep, setActiveStep] = useState(1);
-
   const steps = [
     {
       text: "You're an employee with access to a mission critical system. Try fiddling with the levers!",

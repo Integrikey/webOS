@@ -8,6 +8,7 @@ export type StyledFileEntryProps = {
   $selecting?: boolean;
   $shadows?: boolean;
   $visible?: boolean;
+  $isAttackerMode?: boolean;
 };
 
 export type StyledFileManagerProps = {

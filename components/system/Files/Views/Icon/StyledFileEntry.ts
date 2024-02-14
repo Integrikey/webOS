@@ -63,8 +63,7 @@ const StyledFileEntry = styled.li<StyledFileEntryProps>`
   }
 
   &.focus-within {
-    background-color: ${({ theme }) =>
-      theme.colors.fileEntry.backgroundFocused};
+    background-color: ${({ theme, $isAttackerMode }) => $isAttackerMode ? '' : theme.colors.fileEntry.backgroundFocused};
     z-index: 1;
 
     &.only-focused {
@@ -72,8 +71,7 @@ const StyledFileEntry = styled.li<StyledFileEntryProps>`
     }
 
     &::before {
-      border: ${({ theme }) =>
-        `1px solid ${theme.colors.fileEntry.borderFocused}`};
+      border: ${({ $isAttackerMode, theme }) => $isAttackerMode ? '' : `1px solid ${theme.colors.fileEntry.borderFocused}`};
     }
 
     &:hover {
