@@ -58,7 +58,7 @@ const Sidebar: FC<SidebarProps> = ({
       className={`
         fixed right-0 top-0
         w-full md:w-[33vw] lg:w-[25vw] h-full
-        bg-white
+        ${isAttackerMode ? 'bg-gray-900' : 'bg-white'}
         p-4 md:p-6
       `}
     >
@@ -76,7 +76,10 @@ const Sidebar: FC<SidebarProps> = ({
           className="leading-tight"
         >
           <h1
-            className="text-gray-700 font-medium"
+            className={`
+              font-medium
+              ${isAttackerMode ? 'text-white' : 'text-gray-700'}
+            `}
           >
             Keystrike
           </h1>
