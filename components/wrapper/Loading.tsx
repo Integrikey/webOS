@@ -25,7 +25,7 @@ const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
           viewBox="0 0 96 155"
           width="96"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute -left-12 -top-12"
+          className="hidden md:block absolute -left-12 -top-12"
         >
           <g fill="#167f8b" opacity=".3">
             <path d="m48.0824 77.5h-48.0824l41.3234-77.5h48.0275z" />
@@ -44,7 +44,7 @@ const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
             allowFullScreen
           />
         </div>
-        <div className="bg-[#9FE3E3] py-4 absolute -right-10 -top-10 min-w-40 text-center">
+        <div className="bg-[#9FE3E3] py-4 absolute right-2 lg:-right-10 -top-10 min-w-40 text-center">
           <CountUp
             start={0}
             end={100}
@@ -58,14 +58,14 @@ const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
           >
             {({ countUpRef }) => (
               <span
-                className="text-[#003538] font-extrabold text-4xl"
+                className="text-[#003538] font-extrabold text-2xl lg:text-4xl"
                 ref={countUpRef}
               />
             )}
           </CountUp>
         </div>
         <button
-          className="text-[#E5D851] font-extrabold text-4xl bg-[#003C3F] px-8 py-4 absolute -left-10 -bottom-8 pointer-events-none"
+          className="text-[#E5D851] font-extrabold text-xl lg:text-4xl bg-[#003C3F] px-4 lg:px-8 py-4 absolute -left-2 lg:-left-10 -bottom-12 lg:-bottom-8 pointer-events-none"
           onClick={() => setIsLoading(false)}
           ref={buttonRef}
         >

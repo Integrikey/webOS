@@ -63,11 +63,13 @@ const Sidebar: FC<SidebarProps> = ({
   return (
     <aside
       className={`
-        fixed right-0 top-0
-        w-full md:w-[33vw] lg:w-[25vw] h-full
+        fixed right-0 md:top-0 bottom-0
+        w-full md:w-[33vw] lg:w-[25vw]
+        h-[40vh] md:h-full
         grid content-between
         ${isAttackerMode ? 'bg-gray-900' : 'bg-white'}
         p-4 md:p-6
+        overflow-auto
       `}
     >
       <div>
@@ -75,7 +77,7 @@ const Sidebar: FC<SidebarProps> = ({
           href="https://keystrike.io"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-4 cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-80"
+          className="hidden md:flex items-center gap-4 cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-80"
         >
           <img
             src="/images/logo.svg"
@@ -100,7 +102,7 @@ const Sidebar: FC<SidebarProps> = ({
           </div>
         </a>
         <ul
-          className="py-4 md:py-6 grid gap-3"
+          className="py-4 md:py-6 grid gap-3 mb-8 md:mb-0"
         >
           {steps.map((step, index) =>
             <SidebarStep

@@ -1,5 +1,6 @@
 import { memo, useState } from "react";
 import { toast } from 'react-toastify';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import AppsLoader from "components/system/Apps/AppsLoader";
 import Desktop from "components/system/Desktop";
@@ -18,6 +19,14 @@ import useUrlLoader from "hooks/useUrlLoader";
 import { useExtensionDisabler } from "hooks/useExtensionDisabler";
 
 const Index = (): React.ReactElement => {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#0f766e'
+      },
+    },
+  });
+
   const [isLoading, setIsLoading] = useState(true);
   const [isAttackerMode, setIsAttackerMode] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
@@ -41,7 +50,7 @@ const Index = (): React.ReactElement => {
   };
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       {isLoading && <Loading setIsLoading={setIsLoading} />}
       <div
         onKeyDownCapture={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
@@ -71,7 +80,7 @@ const Index = (): React.ReactElement => {
           setIsModalOpen={setIsModalOpen}
         />
       </div>
-    </>
+    </ThemeProvider>
   );
 };
 

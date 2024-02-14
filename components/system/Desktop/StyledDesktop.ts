@@ -10,13 +10,14 @@ const StyledDesktop = styled.main<StyledDesktopProps>`
   background-image: ${({ $isAttackerMode }) => ($isAttackerMode ? "linear-gradient(to right, transparent 50%, #ef4444 50%)" : "linear-gradient(to right, transparent 50%, transparent 50%)")};
   animation: ${({ $isAttackerMode }) => ($isAttackerMode ? 'slide-in .8s ease-in forwards' : 'slide-out .8s ease-out')};
   contain: strict;
-  height: ${({ $height }) => ($height ? `${$height}px` : "100%")};
   inset: 0;
   overscroll-behavior: none;
   position: fixed;
   width: 100vw;
+  height: 60vh;
 
   @media (min-width: 768px) {
+    height: ${({ $height }) => ($height ? `${$height}px` : "100%")};
     width: 67vw;
   }
   

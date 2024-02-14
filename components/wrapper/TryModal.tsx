@@ -44,7 +44,7 @@ const TryModal: FC<ModalProps> = ({
         Leave your email and we’ll send you a magic link to try Keystrike for free.
       </p>
       <form
-        className="mt-4 flex rounded-lg overflow-hidden"
+        className="mt-4 flex rounded-lg overflow-hidden flex-col md:flex-row"
       >
         <TextField
           id="outlined-basic"
@@ -58,7 +58,7 @@ const TryModal: FC<ModalProps> = ({
         />
         <button
           type="submit"
-          className="bg-teal-700 text-white px-4"
+          className="bg-teal-700 text-white px-4 py-4 md:py-0"
         >
           Request demo
         </button>
