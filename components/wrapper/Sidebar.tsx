@@ -22,6 +22,10 @@ type SidebarStepProps = {
   setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>
 };
 
+type SidebarCTAProps = {
+  isAttackerMode: boolean,
+}
+
 const Sidebar: FC<SidebarProps> = ({
   isAttackerMode,
   setIsAttackerMode,
@@ -58,53 +62,59 @@ const Sidebar: FC<SidebarProps> = ({
       className={`
         fixed right-0 top-0
         w-full md:w-[33vw] lg:w-[25vw] h-full
+        grid content-between
         ${isAttackerMode ? 'bg-gray-900' : 'bg-white'}
         p-4 md:p-6
       `}
     >
-      <a
-        href="https://keystrike.io"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-4 cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-80"
-      >
-        <img
-          src="/images/logo.svg"
-          alt="Keystrike logo"
-        />
-        <div
-          className="leading-tight"
+      <div>
+        <a
+          href="https://keystrike.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 cursor-pointer transition-opacity duration-200 ease-in-out hover:opacity-80"
         >
-          <h1
-            className={`
-              font-medium
-              ${isAttackerMode ? 'text-white' : 'text-gray-700'}
-            `}
-          >
-            Keystrike
-          </h1>
-          <p
-            className="text-sm text-gray-500"
-          >
-            Demo
-          </p>
-        </div>
-      </a>
-      <ul
-        className="py-4 md:py-6 grid gap-3"
-      >
-        {steps.map((step, index) =>
-          <SidebarStep
-            step={step}
-            activeStep={activeStep}
-            index={index + 1}
-            isLastStep={steps.length === index + 1}
-            key={index}
-            isAttackerMode={isAttackerMode}
-            setIsAttackerMode={setIsAttackerMode}
+          <img
+            src="/images/logo.svg"
+            alt="Keystrike logo"
           />
-        )}
-      </ul>
+          <div
+            className="leading-tight"
+          >
+            <h1
+              className={`
+                font-medium
+                ${isAttackerMode ? 'text-white' : 'text-gray-700'}
+              `}
+            >
+              Keystrike
+            </h1>
+            <p
+              className="text-sm text-gray-500"
+            >
+              Demo
+            </p>
+          </div>
+        </a>
+        <ul
+          className="py-4 md:py-6 grid gap-3"
+        >
+          {steps.map((step, index) =>
+            <SidebarStep
+              step={step}
+              activeStep={activeStep}
+              index={index + 1}
+              isLastStep={steps.length === index + 1}
+              key={index}
+              isAttackerMode={isAttackerMode}
+              setIsAttackerMode={setIsAttackerMode}
+            />
+          )}
+        </ul>
+      </div>
+      <SidebarCTA
+        isAttackerMode={isAttackerMode}
+      />
     </aside>
   );
 };
@@ -175,6 +185,38 @@ export const SidebarStep: FC<SidebarStepProps> = ({
           </div>
         }
       </li>
+  )
+}
+
+export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode }) => {
+  return (
+    <div
+      className="grid gap-1 justify-items-start"
+    >
+      <img
+        src="/images/shield.svg"
+        alt="Icon of a shield"
+      />
+      <h2
+        className={`
+          ${isAttackerMode ? 'text-white' : 'text-gray-700'}
+          font-medium
+        `}
+      >
+        Try Keystrike for free
+      </h2>
+      <p
+        className="text-sm text-gray-500 mb-1"
+      >
+        Contact us and get a free 30-day trial, no strings attached!
+      </p>
+      <OutlinedButton
+        text="Request a demo"
+        isModalTrigger={true}
+        isAttackerMode={isAttackerMode}
+        action={() => console.log('test')}
+      />
+    </div>
   )
 }
 

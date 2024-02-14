@@ -7,6 +7,7 @@ import Taskbar from "components/system/Taskbar";
 
 import Sidebar from "components/wrapper/Sidebar";
 import AttackerOverlay from "components/wrapper/AttackerOverlay";
+import Lever from "components/wrapper/Lever";
 
 import useGlobalErrorHandler from "hooks/useGlobalErrorHandler";
 import useGlobalKeyboardShortcuts from "hooks/useGlobalKeyboardShortcuts";
@@ -43,6 +44,8 @@ const Index = (): React.ReactElement => {
       <Desktop
         isAttackerMode={isAttackerMode}
       >
+        <Lever
+        />
         {isAttackerMode &&
           <AttackerOverlay
             notifyAnMoveToFinalStep={notifyAnMoveToFinalStep}
