@@ -1,18 +1,19 @@
-import { useRef } from 'react';
-import CountUp from 'react-countup';
+import { useState, useEffect } from 'react';
+import ReactPlayer from 'react-player/youtube';
 
 type LoadingProps = {
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
-  const loadingDuration = Math.floor(Math.random() * (20 - 6 + 1) + 6);
-  const buttonRef = useRef(null);
+  const [windowLoaded, setWindowLoaded] = useState(false);
+  const [isVideoFinished, setIsVideoFinished] = useState(false);
 
-  const changeContent = () => {
-    buttonRef.current.classList.remove('pointer-events-none');
-    buttonRef.current.textContent = 'Start demo';
-  }
+  useEffect(() => {
+    if(typeof window !== "undefined") {
+      setWindowLoaded(true);
+    };
+  })
 
   return (
     <div
@@ -35,41 +36,24 @@ const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
         <div
           className="min-w-[280px] md:min-w-[600px] w-full border border-solid border-white p-4 rounded-2xl"
         >
-          <iframe
-            src="https://www.youtube.com/embed/H-PVzy3I6zQ?autoplay=1&mute=1"
-            className="w-full h-full aspect-video"
-            title="Keystrike demo introduction"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </div>
-        <div className="bg-[#9FE3E3] py-4 absolute right-2 lg:-right-10 -top-10 min-w-40 text-center">
-          <CountUp
-            start={0}
-            end={100}
-            delay={2}
-            duration={loadingDuration}
-            suffix=" %"
-            useEasing={false}
-            onEnd={() => {
-              changeContent()
-            }}
-          >
-            {({ countUpRef }) => (
-              <span
-                className="text-[#003538] font-extrabold text-2xl lg:text-4xl"
-                ref={countUpRef}
-              />
-            )}
-          </CountUp>
+          {windowLoaded &&
+            <ReactPlayer
+              url='https://www.youtube.com/watch?v=P2KnD7sfpoA'
+              controls={true}
+              onEnded={() => setIsVideoFinished(true)}
+            />
+          }
         </div>
         <button
-          className="text-[#E5D851] font-extrabold text-xl lg:text-4xl bg-[#003C3F] px-4 lg:px-8 py-4 absolute -left-2 lg:-left-10 -bottom-12 lg:-bottom-8 pointer-events-none"
+          className={`
+            ${isVideoFinished === false ? "text-[#003C3F] bg-[#E5D851] pointer-events-none" : "font-extrabold text-[#E5D851] bg-[#003C3F]"}
+            text-xl lg:text-2xl 
+            px-4 py-4
+            absolute -left-2 lg:-left-10 -bottom-8 lg:-bottom-14
+          `}
           onClick={() => setIsLoading(false)}
-          ref={buttonRef}
         >
-          Loading the demo experience...
+          {isVideoFinished === false ? "Ready? Watch the video above to get started!" : "Start the demo!"}
         </button>
       </div>
     </div>
