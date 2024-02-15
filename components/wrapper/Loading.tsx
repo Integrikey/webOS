@@ -7,7 +7,7 @@ type LoadingProps = {
 
 const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
   const [windowLoaded, setWindowLoaded] = useState(false);
-  const [isVideoFinished, setIsVideoFinished] = useState(false);
+  const [isVideoStarted, setIsVideoStarted] = useState(false);
 
   useEffect(() => {
     if(typeof window !== "undefined") {
@@ -40,20 +40,20 @@ const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
             <ReactPlayer
               url='https://www.youtube.com/watch?v=P2KnD7sfpoA'
               controls={true}
-              onEnded={() => setIsVideoFinished(true)}
+              onStart={() => setIsVideoStarted(true)}
             />
           }
         </div>
         <button
           className={`
-            ${isVideoFinished === false ? "text-[#003C3F] bg-[#E5D851] pointer-events-none" : "font-extrabold text-[#E5D851] bg-[#003C3F]"}
+            ${isVideoStarted === false ? "text-[#003C3F] bg-[#E5D851] pointer-events-none" : "font-extrabold text-[#E5D851] bg-[#003C3F]"}
             text-xl lg:text-2xl 
             px-4 py-4
             absolute -left-2 lg:-left-10 -bottom-8 lg:-bottom-14
           `}
           onClick={() => setIsLoading(false)}
         >
-          {isVideoFinished === false ? "Ready? Watch the video above to get started!" : "Start the demo!"}
+          {isVideoStarted === false ? "Ready? Watch the video above to get started!" : "Start the demo!"}
         </button>
       </div>
     </div>
