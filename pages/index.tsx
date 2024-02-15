@@ -27,7 +27,7 @@ const Index = (): React.ReactElement => {
     },
   });
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isAttackerMode, setIsAttackerMode] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
