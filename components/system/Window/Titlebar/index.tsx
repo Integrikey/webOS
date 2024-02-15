@@ -122,7 +122,7 @@ const Titlebar: FC<TitlebarProps> = ({ id }) => {
             <MinimizeIcon />
           </Button>
         )}
-        {!hideMaximizeButton && (
+        {/* {!hideMaximizeButton && (
           <Button
             className="maximize"
             disabled={!allowResizing}
@@ -131,7 +131,7 @@ const Titlebar: FC<TitlebarProps> = ({ id }) => {
           >
             {maximized ? <MaximizedIcon /> : <MaximizeIcon />}
           </Button>
-        )}
+        )} */}
         <Button
           $short={hideMaximizeButton && hideMinimizeButton}
           className="close"
