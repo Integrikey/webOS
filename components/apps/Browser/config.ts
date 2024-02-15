@@ -35,7 +35,7 @@ export const bookmarks: Bookmark[] = [
   },
 ];
 
-export const HOME_PAGE = "https://www.google.com/webhp?igu=1";
+export const HOME_PAGE = "http://localhost:3001/Users/Public/Desktop/WATCH ME.mp4";
 
 export const LOCAL_HOST = new Set(["127.0.0.1", "localhost"]);
 
