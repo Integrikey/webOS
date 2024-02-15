@@ -71,6 +71,7 @@
     "prettier": "^3.2.5",
     "print-js": "^1.6.0",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-player": "^2.14.1",
@@ -84,6 +85,7 @@
     "wasi-js": "^1.7.3"
   },
   "devDependencies": {
+    "7z-wasm": "^1.1.0",
     "@axe-core/playwright": "^4.8.4",
     "@next/bundle-analyzer": "^14.1.0",
     "@next/eslint-plugin-next": "^14.1.0",
@@ -104,7 +106,6 @@
     "@types/wicg-file-system-access": "^2023.10.4",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "7z-wasm": "^1.1.0",
     "emulators": "^0.80.22",
     "emulators-ui": "^0.73.9",
     "eruda": "^3.0.1",

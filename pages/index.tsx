@@ -1,4 +1,5 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
+import { isMobile } from 'react-device-detect';
 import { toast } from 'react-toastify';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -11,6 +12,7 @@ import Sidebar from "components/wrapper/Sidebar";
 import AttackerOverlay from "components/wrapper/AttackerOverlay";
 import Lever from "components/wrapper/Lever";
 import TryModal from "components/wrapper/TryModal";
+import MobileOverlay from "components/wrapper/MobileOverlay";
 
 import useGlobalErrorHandler from "hooks/useGlobalErrorHandler";
 import useGlobalKeyboardShortcuts from "hooks/useGlobalKeyboardShortcuts";
@@ -27,6 +29,7 @@ const Index = (): React.ReactElement => {
     },
   });
 
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isAttackerMode, setIsAttackerMode] = useState(false);
   const [activeStep, setActiveStep] = useState(1);
@@ -49,9 +52,14 @@ const Index = (): React.ReactElement => {
     setActiveStep(3);
   };
 
+  useEffect(() => {
+    setIsMobileDevice(isMobile)
+  }, [])
+
   return (
     <ThemeProvider theme={theme}>
       {isLoading && <Loading setIsLoading={setIsLoading} />}
+      {isMobileDevice && <MobileOverlay />}
       <div
         onKeyDownCapture={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
         className={isAttackerMode ? 'attacked' : ''}
