@@ -1,4 +1,6 @@
 import Modal from 'react-modal';
+import { useRouter } from 'next/router';
+import { ToastContainer, toast } from 'react-toastify';
 import { TextField } from '@mui/material';
 
 type ModalProps = {
@@ -10,6 +12,27 @@ const TryModal: FC<ModalProps> = ({
   isModalOpen,
   setIsModalOpen
 }) => {
+  const router = useRouter();
+
+  const submitForm = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      console.log('API call goes here');
+
+      toast.success("Success! We'll email you a link to start your 30-day trial.", {
+        position: "bottom-right",
+        theme: "colored",
+        onClose: () => router.reload()
+      });
+    } catch (error: any) {
+      toast.error("Something went wrong. Please try again or contact us.", {
+        position: "bottom-right",
+        theme: "colored"
+      });
+    }
+  }
+
   return (
     <Modal
       isOpen={isModalOpen}
@@ -51,6 +74,8 @@ const TryModal: FC<ModalProps> = ({
           label="Email address"
           placeholder="elliot.alderson@acme.com"
           variant="filled"
+          required
+          type="email"
           sx={{
             backgroundColor: 'white',
             flex: '1'
@@ -59,10 +84,12 @@ const TryModal: FC<ModalProps> = ({
         <button
           type="submit"
           className="bg-teal-700 text-white px-4 py-4 md:py-0"
+          onClick={(e) => submitForm(e)}
         >
           Request demo
         </button>
       </form>
+      <ToastContainer />
     </Modal>
   );
 };
