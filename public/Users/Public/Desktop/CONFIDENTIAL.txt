@@ -1,0 +1,3 @@
+Hello from the workstation!
+
+I’m a nice document inside the Remote Desktop. If you are on the employee view, you should be able to edit me. Give it a try!
