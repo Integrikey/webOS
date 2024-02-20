@@ -48,6 +48,7 @@ type FileManagerProps = {
   skipSorting?: boolean;
   url: string;
   view: FileManagerViewNames;
+  isAttackerMode?: boolean;
 };
 
 const FileManager: FC<FileManagerProps> = ({
@@ -66,6 +67,7 @@ const FileManager: FC<FileManagerProps> = ({
   skipSorting,
   url,
   view,
+  isAttackerMode
 }) => {
   const [currentUrl, setCurrentUrl] = useState(url);
   const [renaming, setRenaming] = useState("");
@@ -222,6 +224,7 @@ const FileManager: FC<FileManagerProps> = ({
                 {...(!readOnly && draggableEntry(url, file, renaming === file))}
                 {...(renaming === "" && { onKeyDown: keyShortcuts(file) })}
                 {...focusableEntry(file)}
+                $isAttackerMode={isAttackerMode}
               >
                 <FileEntry
                   fileActions={fileActions}

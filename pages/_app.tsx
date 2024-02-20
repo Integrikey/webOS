@@ -8,6 +8,8 @@ import { ProcessProvider } from "contexts/process";
 import { SessionProvider } from "contexts/session";
 import { ViewportProvider } from "contexts/viewport";
 
+import '../styles/globals.css';
+
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => (
   <ViewportProvider>
     <ProcessProvider>

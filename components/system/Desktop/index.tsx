@@ -5,14 +5,14 @@ import FileManager from "components/system/Files/FileManager";
 import useHeightOverride from "hooks/useHeightOverride";
 import { DESKTOP_PATH } from "utils/constants";
 
-const Desktop: FC = ({ children }) => {
+const Desktop: FC = ({ isAttackerMode, children }) => {
   const heightOverride = useHeightOverride();
   const desktopRef = useRef<HTMLElement | null>(null);
 
   useWallpaper(desktopRef, heightOverride);
 
   return (
-    <StyledDesktop ref={desktopRef} $height={heightOverride}>
+    <StyledDesktop ref={desktopRef} $height={heightOverride} $isAttackerMode={isAttackerMode}>
       <FileManager
         url={DESKTOP_PATH}
         view="icon"
@@ -21,6 +21,7 @@ const Desktop: FC = ({ children }) => {
         hideScrolling
         isDesktop
         loadIconsImmediately
+        isAttackerMode={isAttackerMode? true : false}
       />
       {children}
     </StyledDesktop>

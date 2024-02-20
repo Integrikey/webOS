@@ -13,20 +13,13 @@ import { PREVENT_SCROLL, TRANSITIONS_IN_MILLISECONDS } from "utils/constants";
 import { getExtension, haltEvent } from "utils/functions";
 
 const INCLUDED_PROCESSES = new Set([
-  "BoxedWine",
-  "JSDOS",
   "Marked",
   "MonacoEditor",
   "OpenType",
-  "PDF",
+  "PDF Reader",
   "Paint",
   "Photos",
-  "Ruffle",
-  "TinyMCE",
-  "V86",
-  "VideoPlayer",
   "Vim",
-  "Webamp",
 ]);
 
 type OpenWithEntryProps = {
