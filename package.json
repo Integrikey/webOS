@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "build": "yarn build:prebuild && next build",
+    "build:skip-lint": "yarn build:prebuild && SKIP_LINT=true next build",
     "build:bundle-analyzer": "yarn build",
     "build:fs": "node scripts/fs2json.js --exclude .index --out public/.index/fs.9p.json ./public",
     "build:minify": "node scripts/minifyHtml.js && node scripts/minifyJs.js",
@@ -47,7 +48,7 @@
     "@wasmer/wasm-transformer": "^0.12.0",
     "ani-cursor": "^0.0.5",
     "autoprefixer": "^10.4.17",
-    "browserfs": "https://github.com/jvilk/BrowserFS.git#a96aa2d",
+    "browserfs": "git+https://github.com/jvilk/BrowserFS.git#a96aa2d",
     "butterchurn-presets": "^3.0.0-beta.4",
     "decode-ico": "^0.4.1",
     "dompurify": "^3.0.8",
@@ -81,7 +82,7 @@
     "rtf.js": "^3.0.9",
     "styled-components": "^6.1.8",
     "tailwindcss": "^3.4.1",
-    "utif": "https://github.com/photopea/UTIF.js",
+    "utif": "git+https://github.com/photopea/UTIF.js",
     "wasi-js": "^1.7.3"
   },
   "devDependencies": {

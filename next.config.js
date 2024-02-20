@@ -24,6 +24,10 @@ const nextConfig = {
   devIndicators: {
     buildActivityPosition: "top-right",
   },
+  eslint: {
+    // Use the SKIP_LINT environment variable to control ESLint during builds
+    ignoreDuringBuilds: process.env.SKIP_LINT === 'true',
+  },
   optimizeFonts: false,
   output: "export",
   productionBrowserSourceMaps: false,
