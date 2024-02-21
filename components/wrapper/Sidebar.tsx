@@ -134,6 +134,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
 }) => {
   const isActive = activeStep === index;
   const isStepCompleted = activeStep > index;
+  const isFutureStep = activeStep < index;
 
   const completedClasses = isAttackerMode ? "border-red-500 bg-red-500" : "bg-teal-600 border-teal-600";
   const activeClasses = isAttackerMode ? "text-red-500 border-red-500" : "text-teal-600 border-teal-600";
@@ -174,22 +175,27 @@ export const SidebarStep: FC<SidebarStepProps> = ({
             />
           }
         </div>
-        {isActive &&
-          <div
-            className="grid gap-2 justify-items-start"
-          >
+        <div
+        className="grid gap-2 justify-items-start"
+        >
+          {!isFutureStep &&
             <p
-              className="text-sm text-gray-500"
+            className={`
+              text-sm text-gray-500
+              ${isStepCompleted && "opacity-60"}
+            `}
             >
-              {step.text}
-            </p>
+            {step.text}
+          </p>
+          }
+          {isActive &&
             <OutlinedButton
               text={step.cta}
               isAttackerMode={isAttackerMode}
               action={step.action}
             />
-          </div>
-        }
+          }
+        </div>
       </li>
   )
 }
