@@ -2,18 +2,15 @@ import { memo, useState, useEffect } from "react";
 import { isMobile } from 'react-device-detect';
 import { toast } from 'react-toastify';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
 import AppsLoader from "components/system/Apps/AppsLoader";
 import Desktop from "components/system/Desktop";
 import Taskbar from "components/system/Taskbar";
-
 import Loading from "components/wrapper/Loading";
 import Sidebar from "components/wrapper/Sidebar";
 import AttackerOverlay from "components/wrapper/AttackerOverlay";
 import Lever from "components/wrapper/Lever";
 import TryModal from "components/wrapper/TryModal";
 import MobileOverlay from "components/wrapper/MobileOverlay";
-
 import useGlobalErrorHandler from "hooks/useGlobalErrorHandler";
 import useGlobalKeyboardShortcuts from "hooks/useGlobalKeyboardShortcuts";
 import useIFrameFocuser from "hooks/useIFrameFocuser";
@@ -41,7 +38,7 @@ const Index = (): React.ReactElement => {
   useGlobalErrorHandler();
   useExtensionDisabler();
 
-  const notifyAnMoveToFinalStep = (e: React.SyntheticEvent) => {
+  const notifyAnMoveToFinalStep = (e: React.SyntheticEvent): void => {
     e.stopPropagation();
 
     toast.error('Unauthorized keystroke detected. System blocked.', {
@@ -61,8 +58,8 @@ const Index = (): React.ReactElement => {
       {isLoading && <Loading setIsLoading={setIsLoading} />}
       {isMobileDevice && <MobileOverlay />}
       <div
-        onKeyDownCapture={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
         className={isAttackerMode ? 'attacked' : ''}
+        onKeyDownCapture={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
       >
         <Desktop
           isAttackerMode={isAttackerMode}
@@ -77,10 +74,10 @@ const Index = (): React.ReactElement => {
           <AppsLoader />
         </Desktop>
         <Sidebar
-          isAttackerMode={isAttackerMode}
-          setIsAttackerMode={setIsAttackerMode}
           activeStep={activeStep}
+          isAttackerMode={isAttackerMode}
           setActiveStep={setActiveStep}
+          setIsAttackerMode={setIsAttackerMode}
           setIsModalOpen={setIsModalOpen}
         />
         <TryModal
