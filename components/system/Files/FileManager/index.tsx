@@ -39,6 +39,7 @@ type FileManagerProps = {
   hideScrolling?: boolean;
   hideShortcutIcons?: boolean;
   id?: string;
+  isAttackerMode?: boolean;
   isDesktop?: boolean;
   isStartMenu?: boolean;
   loadIconsImmediately?: boolean;
@@ -48,7 +49,6 @@ type FileManagerProps = {
   skipSorting?: boolean;
   url: string;
   view: FileManagerViewNames;
-  isAttackerMode?: boolean;
 };
 
 const FileManager: FC<FileManagerProps> = ({

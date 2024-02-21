@@ -5,10 +5,10 @@ import StyledListFileManager from "components/system/Files/Views/List/StyledFile
 import { type IconProps } from "styles/common/Icon";
 
 export type StyledFileEntryProps = {
+  $isAttackerMode?: boolean;
   $selecting?: boolean;
   $shadows?: boolean;
   $visible?: boolean;
-  $isAttackerMode?: boolean;
 };
 
 export type StyledFileManagerProps = {

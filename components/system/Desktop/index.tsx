@@ -12,8 +12,9 @@ const Desktop: FC = ({ isAttackerMode, children }) => {
   useWallpaper(desktopRef, heightOverride);
 
   return (
-    <StyledDesktop ref={desktopRef} $height={heightOverride} $isAttackerMode={isAttackerMode}>
+    <StyledDesktop ref={desktopRef} $height={heightOverride} $isAttackerMode={!!isAttackerMode}>
       <FileManager
+        isAttackerMode={!!isAttackerMode}
         url={DESKTOP_PATH}
         view="icon"
         allowMovingDraggableEntries
@@ -21,7 +22,6 @@ const Desktop: FC = ({ isAttackerMode, children }) => {
         hideScrolling
         isDesktop
         loadIconsImmediately
-        isAttackerMode={isAttackerMode? true : false}
       />
       {children}
     </StyledDesktop>
