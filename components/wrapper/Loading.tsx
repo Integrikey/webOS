@@ -13,7 +13,7 @@ const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
     if(typeof window !== "undefined") {
       setWindowLoaded(true);
     };
-  })
+  }, [])
 
   return (
     <div
@@ -21,12 +21,12 @@ const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
     >
       <div className="relative">
         <svg
+          className="hidden md:block absolute -left-12 -top-12"
           fill="none"
           height="155"
           viewBox="0 0 96 155"
           width="96"
           xmlns="http://www.w3.org/2000/svg"
-          className="hidden md:block absolute -left-12 -top-12"
         >
           <g fill="#167f8b" opacity=".3">
             <path d="m48.0824 77.5h-48.0824l41.3234-77.5h48.0275z" />
@@ -38,22 +38,23 @@ const Loading: FC<LoadingProps> = ({ setIsLoading }) => {
         >
           {windowLoaded &&
             <ReactPlayer
-              url='https://www.youtube.com/watch?v=P2KnD7sfpoA'
-              controls={true}
               onStart={() => setIsVideoStarted(true)}
+              url='https://www.youtube.com/watch?v=P2KnD7sfpoA'
+              controls
             />
           }
         </div>
         <button
           className={`
-            ${isVideoStarted === false ? "text-[#003C3F] bg-[#E5D851] pointer-events-none" : "font-extrabold text-[#E5D851] bg-[#003C3F]"}
+            ${isVideoStarted ? "font-extrabold text-[#E5D851] bg-[#003C3F]" : "text-[#003C3F] bg-[#E5D851] pointer-events-none"}
             text-xl lg:text-2xl 
             px-4 py-4
             absolute -left-2 lg:-left-10 -bottom-8 lg:-bottom-14
           `}
           onClick={() => setIsLoading(false)}
+          type="button"
         >
-          {isVideoStarted === false ? "Ready? Watch the video above to get started!" : "Start the demo!"}
+          {isVideoStarted ? "Start the demo!" : "Ready? Watch the video above to get started!"}
         </button>
       </div>
     </div>

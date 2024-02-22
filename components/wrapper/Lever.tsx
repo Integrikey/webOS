@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Lever = () => {
+const Lever: FC = (): React.JSX.Element => {
   const [isOn, setIsOn] = useState(true)
 
   return (
@@ -12,8 +12,8 @@ const Lever = () => {
     >
       <div className="relative">
         <img
-          src="/images/lever.png"
           alt="A lever. Click on it to interact with the knob."
+          src="/images/lever.png"
         />
         <button
           className={`
@@ -21,16 +21,17 @@ const Lever = () => {
             ${isOn ? "top-4" : "bottom-4"}
           `}
           onClick={() => setIsOn(!isOn)}
+          type="button"
         >
           <img
-            src="/images/knob.png"
             alt="A lever knob. Click on it to interact with the lever."
+            src="/images/knob.png"
           />
         </button>
       </div>
       <img
-        src="/images/arrows.svg"
         alt="Decorative arrows"
+        src="/images/arrows.svg"
       />
       <p
         className="font-medium text-white text-center"

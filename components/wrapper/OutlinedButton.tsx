@@ -1,15 +1,15 @@
 type ButtonProps = {
-  text: string,
+  action: () => void,
   isAttackerMode?: boolean,
   isModalTrigger?: boolean,
-  action: () => void
+  text: string
 };
 
 const OutlinedButton: FC<ButtonProps> = ({
-  text,
+  action,
   isAttackerMode,
   isModalTrigger,
-  action
+  text
 }): React.JSX.Element => {
   const modalTriggerClasses = `border-gray-200 hover:bg-teal-700 hover:border-teal-700 ${isAttackerMode ? 'text-white' : 'text-gray-700 hover:text-white'}`;
 
@@ -28,6 +28,7 @@ const OutlinedButton: FC<ButtonProps> = ({
         text-sm font-medium
       `}
       onClick={action}
+      type="button"
     >
       {text}
     </button>

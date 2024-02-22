@@ -3,8 +3,6 @@ import rndDefaults from "components/system/Window/RndWindow/rndDefaults";
 import StyledTitlebar from "components/system/Window/Titlebar/StyledTitlebar";
 import {
   CloseIcon,
-  MaximizeIcon,
-  MaximizedIcon,
   MinimizeIcon,
 } from "components/system/Window/Titlebar/WindowActionIcons";
 import useTitlebarContextMenu from "components/system/Window/Titlebar/useTitlebarContextMenu";
@@ -36,7 +34,6 @@ const Titlebar: FC<TitlebarProps> = ({ id }) => {
     hideTitlebarIcon,
     icon,
     title,
-    maximized,
   } = process || {};
   const { foregroundId } = useSession();
   const isForeground = id === foregroundId;

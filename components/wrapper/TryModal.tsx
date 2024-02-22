@@ -11,21 +11,21 @@ type ModalProps = {
 const TryModal: FC<ModalProps> = ({
   isModalOpen,
   setIsModalOpen
-}) => {
+}): React.JSX.Element => {
   const router = useRouter();
 
-  const submitForm = async (e: React.FormEvent) => {
+  const submitForm: React.FormEventHandler = (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      console.log('API call goes here');
+      // API call goes here
 
       toast.success("Success! We'll email you a link to start your 30-day trial.", {
+        onClose: () => router.reload(),
         position: "bottom-right",
-        theme: "colored",
-        onClose: () => router.reload()
+        theme: "colored"
       });
-    } catch (error: any) {
+    } catch {
       toast.error("Something went wrong. Please try again or contact us.", {
         position: "bottom-right",
         theme: "colored"
@@ -35,28 +35,28 @@ const TryModal: FC<ModalProps> = ({
 
   return (
     <Modal
+      contentLabel="Try Keystrike Modal"
       isOpen={isModalOpen}
       onRequestClose={() => setIsModalOpen(!isModalOpen)}
-      contentLabel="Try Keystrike Modal"
       style={{
-        overlay: {
-          backgroundColor: 'rgba(0, 60, 63, .96)'
-        },
         content: {
-          maxWidth: '600px',
-          margin: 'auto',
           backgroundColor: '#A1E3E2',
           border: 'none',
           borderRadius: '.8rem',
           height: 'fit-content',
+          margin: 'auto',
+          maxWidth: '600px',
           padding: '2rem'
+        },
+        overlay: {
+          backgroundColor: 'rgba(0, 60, 63, .96)'
         }
       }}
     >
       <img
-        src="/images/cta.jpg"
-        alt="Image of a person with a laptop"
+        alt="A person with a laptop"
         className="mx-auto mb-4"
+        src="/images/cta.jpg"
       />
       <h3
         className="text-center text-gray-800 font-semibold text-xl md:text-3xl"
@@ -73,18 +73,18 @@ const TryModal: FC<ModalProps> = ({
           id="outlined-basic"
           label="Email address"
           placeholder="elliot.alderson@acme.com"
-          variant="filled"
-          required
-          type="email"
           sx={{
             backgroundColor: 'white',
             flex: '1'
           }}
+          type="email"
+          variant="filled"
+          required
         />
         <button
-          type="submit"
           className="bg-teal-700 text-white px-4 py-4 md:py-0"
           onClick={(e) => submitForm(e)}
+          type="submit"
         >
           Request demo
         </button>

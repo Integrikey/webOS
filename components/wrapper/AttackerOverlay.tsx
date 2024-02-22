@@ -5,17 +5,16 @@ type OverlayProps = {
   notifyAnMoveToFinalStep: (e: React.SyntheticEvent) => void
 };
 
-const AttackerOverlay: FC<OverlayProps> = ({ notifyAnMoveToFinalStep }): React.JSX.Element => {
-  return (
-    <div
-      className="absolute w-full h-full top-0 z-[2000000]"
-      onClick={(e) => notifyAnMoveToFinalStep(e)}
-    >
-      <ToastContainer
-        closeButton={false}
-      />
-    </div>
-  );
-};
+const AttackerOverlay: FC<OverlayProps> = ({ notifyAnMoveToFinalStep }): React.JSX.Element => (
+  <button
+    className="absolute w-full h-full top-0 z-[2000000]"
+    onClick={(e) => notifyAnMoveToFinalStep(e)}
+    type="button"
+  >
+    <ToastContainer
+      closeButton={false}
+    />
+  </button>
+);
 
 export default AttackerOverlay;
