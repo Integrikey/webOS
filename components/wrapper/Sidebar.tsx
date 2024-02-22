@@ -213,7 +213,7 @@ const Sidebar: FC<SidebarProps> = ({
         >
           {steps.map((step, index) =>
             <SidebarStep
-              key={index * steps.length}
+              key={Math.random()}
               activeStep={activeStep}
               index={index + 1}
               isAttackerMode={isAttackerMode}
