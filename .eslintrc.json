@@ -103,6 +103,7 @@
       }
     ],
     "jsx-a11y/no-autofocus": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
     "no-console": ["error", { "allow": ["info", "error"] }],
     "no-constant-binary-expression": "error",
     "no-implicit-coercion": "error",
