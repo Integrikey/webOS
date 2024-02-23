@@ -58,7 +58,7 @@ const Index = (): React.ReactElement => {
       <div
         className={isAttackerMode ? 'attacked' : ''}
         onKeyDown={isAttackerMode ? () => notifyAnMoveToFinalStep() : undefined}
-        role="button"
+        role="article"
       >
         <Desktop
           isAttackerMode={isAttackerMode}
