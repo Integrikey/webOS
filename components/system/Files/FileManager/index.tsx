@@ -187,10 +187,10 @@ const FileManager: FC<FileManagerProps> = ({
   }, [currentUrl, folderActions, url]);
 
   useEffect(() => {
-    if (!loading && !isDesktop && !isStartMenu) {
+    if (!loading && !isDesktop && !isStartMenu || isAttackerMode) {
       fileManagerRef.current?.focus(PREVENT_SCROLL);
     }
-  }, [isDesktop, isStartMenu, loading]);
+  }, [isDesktop, isStartMenu, loading, isAttackerMode]);
 
   return (
     <>

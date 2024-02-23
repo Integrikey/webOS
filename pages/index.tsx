@@ -39,8 +39,6 @@ const Index = (): React.ReactElement => {
   useExtensionDisabler();
 
   const notifyAnMoveToFinalStep = (e: React.SyntheticEvent): void => {
-    e.stopPropagation();
-
     toast.error('Unauthorized keystroke detected. System blocked.', {
       position: "bottom-right",
       theme: "colored",
@@ -59,7 +57,7 @@ const Index = (): React.ReactElement => {
       {isMobileDevice && <MobileOverlay />}
       <div
         className={isAttackerMode ? 'attacked' : ''}
-        onKeyDownCapture={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
+        onKeyDown={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
       >
         <Desktop
           isAttackerMode={isAttackerMode}
