@@ -178,6 +178,7 @@ const Sidebar: FC<SidebarProps> = ({
         p-4 md:p-6
         overflow-auto
       `}
+      tabIndex={-1}
     >
       <div>
         <a
