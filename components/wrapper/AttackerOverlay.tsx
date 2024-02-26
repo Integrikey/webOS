@@ -7,7 +7,7 @@ type OverlayProps = {
 
 const AttackerOverlay: FC<OverlayProps> = ({ notifyAnMoveToFinalStep }): React.JSX.Element => (
   <button
-    className="absolute w-full h-full top-0 z-[2000000]"
+    className="absolute w-full h-full top-0 z-[2000000] cursor-default"
     onClick={(e) => notifyAnMoveToFinalStep(e)}
     type="button"
   >
