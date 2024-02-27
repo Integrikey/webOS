@@ -47,9 +47,19 @@ const Index = (): React.ReactElement => {
     setActiveStep(3);
   };
 
+  const backToPreviousStep = (index: number): void => {
+    setActiveStep(index);
+    
+    if (index === 2) {
+      setIsAttackerMode(true);
+    } else {
+      setIsAttackerMode(false);
+    };
+  }
+
   useEffect(() => {
-    setIsMobileDevice(isMobile)
-  }, [])
+    setIsMobileDevice(isMobile);
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -78,6 +88,7 @@ const Index = (): React.ReactElement => {
           setActiveStep={setActiveStep}
           setIsAttackerMode={setIsAttackerMode}
           setIsModalOpen={setIsModalOpen}
+          backToPreviousStep={backToPreviousStep}
         />
         <TryModal
           isModalOpen={isModalOpen}

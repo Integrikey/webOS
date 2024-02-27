@@ -3,6 +3,7 @@ import OutlinedButton from 'components/wrapper/OutlinedButton';
 type SidebarProps = {
   activeStep: number,
   isAttackerMode: boolean,
+  backToPreviousStep: (index: number) => void,
   setActiveStep: React.Dispatch<React.SetStateAction<number>>,
   setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>,
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -19,6 +20,7 @@ type SidebarStepProps = {
   index: number,
   isAttackerMode: boolean,
   isLastStep: boolean,
+  backToPreviousStep: (index: number) => void,
   setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>,
   step: Step
 };
@@ -63,7 +65,8 @@ export const SidebarStep: FC<SidebarStepProps> = ({
   index,
   isAttackerMode,
   isLastStep,
-  step
+  step,
+  backToPreviousStep
 }) => {
   const isActive = activeStep === index;
   const isStepCompleted = activeStep > index;
@@ -79,7 +82,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
       <div
         className="grid justify-items-center gap-3"
       >
-        <span
+        <button
           className={`
             flex items-center justify-center
             w-8 h-8
@@ -92,6 +95,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
                 : "text-gray-400 border-gray-400"
             }
           `}
+          onClick={isStepCompleted ? () => backToPreviousStep(index) : undefined}
         >
           {isStepCompleted
             ?
@@ -101,7 +105,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
             />
             : index
           }
-        </span>
+        </button>
         {!isLastStep &&
           <div
             className="w-px h-full min-h-[3rem] bg-gray-300"
@@ -138,7 +142,8 @@ const Sidebar: FC<SidebarProps> = ({
   isAttackerMode,
   setActiveStep,
   setIsAttackerMode,
-  setIsModalOpen
+  setIsModalOpen,
+  backToPreviousStep
 }): React.JSX.Element => {
   const defaultCtaText = "Change to attacker view";
 
@@ -221,6 +226,7 @@ const Sidebar: FC<SidebarProps> = ({
               isLastStep={steps.length === index + 1}
               setIsAttackerMode={setIsAttackerMode}
               step={step}
+              backToPreviousStep={backToPreviousStep}
             />
           )}
         </ul>
