@@ -38,10 +38,11 @@ const Index = (): React.ReactElement => {
   useGlobalErrorHandler();
   useExtensionDisabler();
 
-  const notifyAnMoveToFinalStep = (): void => {
-    toast.error('Unauthorized keystroke detected. System blocked.', {
+  const notifyAnMoveToFinalStep = (e: React.SyntheticEvent): void => {
+    toast.error(`Unauthorized ${e?.type === 'click' ? 'click' : 'keystroke'} detected. System blocked.`, {
       position: "bottom-right",
       theme: "colored",
+      className: "text-left"
     });
 
     setActiveStep(3);
