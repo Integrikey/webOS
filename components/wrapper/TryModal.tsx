@@ -28,6 +28,7 @@ const TryModal: FC<ModalProps> = ({
     <Modal
       contentLabel="Try Keystrike Modal"
       isOpen={isModalOpen}
+      ariaHideApp={false}
       onRequestClose={() => setIsModalOpen(!isModalOpen)}
       style={{
         content: {

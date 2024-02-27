@@ -1,0 +1,23 @@
+.FormContainer form {
+  @apply grid gap-4;
+}
+
+.FormContainer :global(.hs-fieldtype-text) label {
+  @apply text-sm block mb-2
+}
+
+.FormContainer input {
+  @apply w-full rounded-lg px-4 py-2;
+}
+
+.FormContainer input[type=submit] {
+  @apply bg-teal-700 text-white w-auto cursor-pointer transition ease-in-out duration-200 hover:bg-teal-600;
+}
+
+.FormContainer :global(.hs-error-msgs) label {
+  @apply text-xs text-red-700 block mt-2;
+}
+
+.FormContainer :global(.submitted-message) {
+  @apply bg-teal-600 text-white p-4 rounded-xl text-center;
+}
