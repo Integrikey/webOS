@@ -328,12 +328,12 @@ export const TASKBAR_HEIGHT = 30;
 export const PACKAGE_DATA = {
   alias: "Keystrike Demo",
   author: {
-    email: "dustinbrett@gmail.com",
-    name: "Dustin Brett",
+    email: "info@keystrike.io",
+    name: "Keystrike",
     npub: "npub10uc7hg6wdxhhd7ee8x9c5lr9d0ux7272rv2m0mc03ds54q7quxjss02r3p",
-    url: "https://dustinbrett.com",
+    url: "https://keystrike.io",
   },
-  description: "Desktop environment in the browser",
+  description: "Demo of the Keystrike Environment in the Browser",
   license: "MIT",
   version: "2.0.0",
 };
