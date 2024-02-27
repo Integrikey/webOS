@@ -36,7 +36,7 @@ const Lever: FC = (): React.JSX.Element => {
       <p
         className="font-medium text-white text-center"
       >
-        Shut off power plant. <br /> Authorized personnel only.
+        Shut down critical system. <br /> Authorized personnel only.
       </p>
     </div>
   );
