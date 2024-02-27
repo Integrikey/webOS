@@ -20,7 +20,10 @@ const useUrlLoader = (): void => {
 
     loadedInitialAppRef.current = true;
 
-    const app = getSearchParam("app");
+    let app = getSearchParam("app");
+    if (app === "") {
+      app = "browser"
+    }
     const url = getSearchParam("url");
 
     const loadInitialApp = async (initialApp: string): Promise<void> => {
