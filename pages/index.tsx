@@ -68,7 +68,7 @@ const Index = (): React.ReactElement => {
       {isMobileDevice && <MobileOverlay />}
       <div
         className={isAttackerMode ? 'attacked' : ''}
-        onKeyDown={isAttackerMode ? () => notifyAnMoveToFinalStep() : undefined}
+        onKeyDown={isAttackerMode ? (e) => notifyAnMoveToFinalStep(e) : undefined}
         role="article"
       >
         <Desktop
