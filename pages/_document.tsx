@@ -45,7 +45,6 @@ class Document extends NextDocument {
       <Html lang={DEFAULT_LOCALE}>
         <Head />
         <body>
-          <Script src="https://js.hsforms.net/forms/embed/v2.js" />
           <Script id="initHeight" strategy="beforeInteractive">
             window.initialHeight = window.innerHeight;
           </Script>
