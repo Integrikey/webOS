@@ -114,7 +114,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
         {!isFutureStep &&
           <p
           className={`
-            text-sm text-gray-500
+            text-gray-600
             ${isStepCompleted && "opacity-60"}
           `}
           >
