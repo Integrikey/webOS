@@ -2,8 +2,8 @@ import OutlinedButton from 'components/wrapper/OutlinedButton';
 
 type SidebarProps = {
   activeStep: number,
-  isAttackerMode: boolean,
   backToPreviousStep: (index: number) => void,
+  isAttackerMode: boolean,
   setActiveStep: React.Dispatch<React.SetStateAction<number>>,
   setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>,
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -17,10 +17,10 @@ type Step = {
 
 type SidebarStepProps = {
   activeStep: number,
+  backToPreviousStep: (index: number) => void,
   index: number,
   isAttackerMode: boolean,
   isLastStep: boolean,
-  backToPreviousStep: (index: number) => void,
   setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>,
   step: Step
 };
@@ -62,11 +62,11 @@ export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode, setIsModalOpen
 
 export const SidebarStep: FC<SidebarStepProps> = ({
   activeStep,
+  backToPreviousStep,
   index,
   isAttackerMode,
   isLastStep,
-  step,
-  backToPreviousStep
+  step
 }) => {
   const isActive = activeStep === index;
   const isStepCompleted = activeStep > index;
@@ -96,6 +96,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
             }
           `}
           onClick={isStepCompleted ? () => backToPreviousStep(index) : undefined}
+          type="button"
         >
           {isStepCompleted
             ?
@@ -221,12 +222,12 @@ const Sidebar: FC<SidebarProps> = ({
             <SidebarStep
               key={Math.random()}
               activeStep={activeStep}
+              backToPreviousStep={backToPreviousStep}
               index={index + 1}
               isAttackerMode={isAttackerMode}
               isLastStep={steps.length === index + 1}
               setIsAttackerMode={setIsAttackerMode}
               step={step}
-              backToPreviousStep={backToPreviousStep}
             />
           )}
         </ul>

@@ -84,11 +84,11 @@ const Index = (): React.ReactElement => {
         </Desktop>
         <Sidebar
           activeStep={activeStep}
+          backToPreviousStep={backToPreviousStep}
           isAttackerMode={isAttackerMode}
           setActiveStep={setActiveStep}
           setIsAttackerMode={setIsAttackerMode}
           setIsModalOpen={setIsModalOpen}
-          backToPreviousStep={backToPreviousStep}
         />
         <TryModal
           isModalOpen={isModalOpen}
