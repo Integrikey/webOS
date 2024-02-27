@@ -1,10 +1,9 @@
- import React from 'react';
+import type React from 'react';
 import Modal from 'react-modal';
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import HubspotForm from 'react-hubspot-form';
-
-import styles from './Form.module.css';
+import styles from 'components/wrapper/Form.module.css';
 
 type ModalProps = {
   isModalOpen: boolean,
@@ -60,11 +59,10 @@ const TryModal: FC<ModalProps> = ({
       </p>
       <div className={`mt-4 ${styles.FormContainer}`}>
         <HubspotForm
-          portalId='23432949'
           formId='358963d6-fa08-4857-8929-a79763b276ed'
-          onSubmit={() => submitForm()}
           loading={<div>Loading...</div>}
-          css="bg-teal-600"
+          onSubmit={() => submitForm()}
+          portalId='23432949'
         />
       </div>
       <ToastContainer />

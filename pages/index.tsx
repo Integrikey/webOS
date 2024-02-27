@@ -40,9 +40,9 @@ const Index = (): React.ReactElement => {
 
   const notifyAnMoveToFinalStep = (e: React.SyntheticEvent): void => {
     toast.error(`Unauthorized ${e?.type === 'click' ? 'click' : 'keystroke'} detected. System blocked.`, {
+      className: "text-left",
       position: "bottom-right",
-      theme: "colored",
-      className: "text-left"
+      theme: "colored"
     });
 
     setActiveStep(3);
