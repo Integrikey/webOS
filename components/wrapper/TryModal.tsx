@@ -1,7 +1,12 @@
+ import React from 'react';
 import Modal from 'react-modal';
 import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
+import HubspotForm from 'react-hubspot-form';
+
 import { TextField } from '@mui/material';
+
+import styles from './Form.module.css';
 
 type ModalProps = {
   isModalOpen: boolean,
@@ -14,23 +19,12 @@ const TryModal: FC<ModalProps> = ({
 }): React.JSX.Element => {
   const router = useRouter();
 
-  const submitForm: React.FormEventHandler = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      // API call goes here
-
-      toast.success("Success! We'll email you a link to start your 30-day trial.", {
-        onClose: () => router.reload(),
-        position: "bottom-right",
-        theme: "colored"
-      });
-    } catch {
-      toast.error("Something went wrong. Please try again or contact us.", {
-        position: "bottom-right",
-        theme: "colored"
-      });
-    }
+  const submitForm = (): void => {
+    toast.success("Success! We'll email you a link to start your 30-day trial.", {
+      onClose: () => router.reload(),
+      position: "bottom-right",
+      theme: "colored"
+    });
   }
 
   return (
@@ -66,29 +60,15 @@ const TryModal: FC<ModalProps> = ({
       <p className="text-gray-600 text-center max-w-md mx-auto mt-2">
         Leave your email and we’ll send you a magic link to try Keystrike for free.
       </p>
-      <form
-        className="mt-4 flex rounded-lg overflow-hidden flex-col md:flex-row"
-      >
-        <TextField
-          id="outlined-basic"
-          label="Email address"
-          placeholder="elliot.alderson@acme.com"
-          sx={{
-            backgroundColor: 'white',
-            flex: '1'
-          }}
-          type="email"
-          variant="filled"
-          required
+      <div className={`mt-4 ${styles.FormContainer}`}>
+        <HubspotForm
+          portalId='23432949'
+          formId='358963d6-fa08-4857-8929-a79763b276ed'
+          onSubmit={() => submitForm()}
+          loading={<div>Loading...</div>}
+          css="bg-teal-600"
         />
-        <button
-          className="bg-teal-700 text-white px-4 py-4 md:py-0"
-          onClick={(e) => submitForm(e)}
-          type="submit"
-        >
-          Request demo
-        </button>
-      </form>
+      </div>
       <ToastContainer />
     </Modal>
   );
