@@ -3,7 +3,7 @@
 }
 
 .FormContainer :global(.hs-fieldtype-text) label {
-  @apply text-sm block mb-2
+  @apply text-sm block mb-2 text-gray-800;
 }
 
 .FormContainer input {
