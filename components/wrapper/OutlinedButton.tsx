@@ -15,6 +15,7 @@ const OutlinedButton: FC<ButtonProps> = ({
 
   return (
     <button
+      autoFocus
       className={`
         px-4 py-1
         border border-solid rounded-md
