@@ -15,21 +15,21 @@ const OutlinedButton: FC<ButtonProps> = ({
 
   return (
     <button
-      autoFocus
       className={`
-        px-4 py-1
-        border border-solid rounded-md
-        transition-all duration-200 ease-in-out
-        ${isModalTrigger
-          ? modalTriggerClasses
-          : isAttackerMode
-            ? "border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white"
-            : "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
-        }
-        text-sm font-medium
+      px-4 py-1
+      border border-solid rounded-md
+      transition-all duration-200 ease-in-out
+      ${isModalTrigger
+        ? modalTriggerClasses
+        : isAttackerMode
+        ? "border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white"
+        : "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+      }
+      text-sm font-medium
       `}
       onClick={action}
       type="button"
+      autoFocus
     >
       {text}
     </button>
