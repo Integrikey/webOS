@@ -1,5 +1,5 @@
-import OutlinedButton from 'components/wrapper/OutlinedButton';
 import { useEffect, useRef } from 'react';
+import OutlinedButton from 'components/wrapper/OutlinedButton';
 
 type SidebarProps = {
   activeStep: number,
@@ -135,6 +135,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
         }
         {isActive &&
           <button
+            ref={buttonRef}
             className={`
             px-4 py-1
             border border-solid rounded-md
@@ -148,7 +149,6 @@ export const SidebarStep: FC<SidebarStepProps> = ({
             `}
             onClick={step.action}
             type="button"
-            ref={buttonRef}
           >
             {step.cta}
           </button>
