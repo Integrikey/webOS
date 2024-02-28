@@ -169,7 +169,7 @@ const Sidebar: FC<SidebarProps> = ({
         setIsAttackerMode(!isAttackerMode)
       },
       cta: isAttackerMode ? "Back to employee view" : defaultCtaText,
-      text: "Keystrike on the mission-critical system blocks unattested keystrokes. The attacker can't move laterally."
+      text: "Keystrike on the mission-critical system blocks unattested input. The attacker can't move laterally."
     }
   ];
 
