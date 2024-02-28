@@ -1,4 +1,5 @@
 import OutlinedButton from 'components/wrapper/OutlinedButton';
+import { useEffect, useRef } from 'react';
 
 type SidebarProps = {
   activeStep: number,
@@ -75,6 +76,12 @@ export const SidebarStep: FC<SidebarStepProps> = ({
   const completedClasses = isAttackerMode ? "border-red-500 bg-red-500" : "bg-teal-600 border-teal-600";
   const activeClasses = isAttackerMode ? "text-red-500 border-red-500" : "text-teal-600 border-teal-600";
 
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (document.activeElement?.localName === 'section') buttonRef.current?.focus();
+  }, [])
+
   return (
     <li
       className="flex gap-4"
@@ -127,11 +134,24 @@ export const SidebarStep: FC<SidebarStepProps> = ({
         </p>
         }
         {isActive &&
-          <OutlinedButton
-            action={step.action}
-            isAttackerMode={isAttackerMode}
-            text={step.cta}
-          />
+          <button
+            className={`
+            px-4 py-1
+            border border-solid rounded-md
+            transition-all duration-200 ease-in-out
+            ${isAttackerMode ?
+              "border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white"
+              :
+              "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+            }
+            text-sm font-medium
+            `}
+            onClick={step.action}
+            type="button"
+            ref={buttonRef}
+          >
+            {step.cta}
+          </button>
         }
       </div>
     </li>
