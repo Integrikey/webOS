@@ -29,7 +29,6 @@ const OutlinedButton: FC<ButtonProps> = ({
       `}
       onClick={action}
       type="button"
-      autoFocus
     >
       {text}
     </button>
