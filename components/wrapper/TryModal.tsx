@@ -30,6 +30,7 @@ const TryModal: FC<ModalProps> = ({
       contentLabel="Try Keystrike Modal"
       isOpen={isModalOpen}
       onRequestClose={() => setIsModalOpen(!isModalOpen)}
+      portalClassName={styles.Portal}
       style={{
         content: {
           backgroundColor: '#A1E3E2',
