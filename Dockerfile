@@ -2,7 +2,8 @@ FROM node:18-alpine as builder
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
-RUN apk add --no-cache git
+RUN apk add --update --no-cache git curl
+RUN curl -I https://github.com
 
 WORKDIR daedalOS
 COPY package.json yarn.lock ./
