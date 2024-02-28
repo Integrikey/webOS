@@ -4,9 +4,9 @@ type SidebarProps = {
   activeStep: number,
   backToPreviousStep: (index: number) => void,
   isAttackerMode: boolean,
+  openModal: () => void,
   setActiveStep: React.Dispatch<React.SetStateAction<number>>,
-  setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>,
-  openModal: () => void
+  setIsAttackerMode: React.Dispatch<React.SetStateAction<boolean>>
 };
 
 type Step = {

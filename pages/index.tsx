@@ -58,7 +58,7 @@ const Index = (): React.ReactElement => {
     };
   }
 
-  const openModal = () => {
+  const openModal = (): void => {
     setIsAttackerMode(false);
     setIsModalOpen(true);
   }
@@ -92,9 +92,9 @@ const Index = (): React.ReactElement => {
           activeStep={activeStep}
           backToPreviousStep={backToPreviousStep}
           isAttackerMode={isAttackerMode}
+          openModal={openModal}
           setActiveStep={setActiveStep}
           setIsAttackerMode={setIsAttackerMode}
-          openModal={openModal}
         />
         <TryModal
           isModalOpen={isModalOpen}
