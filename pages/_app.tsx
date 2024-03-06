@@ -1,5 +1,6 @@
 import { type AppProps } from "next/app";
 import { ErrorBoundary } from "components/pages/ErrorBoundary";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 import Metadata from "components/pages/Metadata";
 import StyledApp from "components/pages/StyledApp";
 import { FileSystemProvider } from "contexts/fileSystem";
@@ -19,6 +20,10 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => (
             <Metadata />
             <StyledApp>
               <MenuProvider>
+                <GoogleAnalytics
+                  gaMeasurementId="G-8QERXNZ66X"
+                  trackPageViews
+                />
                 <Component {...pageProps} />
               </MenuProvider>
             </StyledApp>
