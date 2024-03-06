@@ -1,6 +1,6 @@
 import { type AppProps } from "next/app";
-import { ErrorBoundary } from "components/pages/ErrorBoundary";
 import { GoogleAnalytics } from "nextjs-google-analytics";
+import { ErrorBoundary } from "components/pages/ErrorBoundary";
 import Metadata from "components/pages/Metadata";
 import StyledApp from "components/pages/StyledApp";
 import { FileSystemProvider } from "contexts/fileSystem";
