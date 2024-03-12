@@ -55,7 +55,7 @@ export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode, openModal }) =
     <OutlinedButton
       action={() => openModal()}
       isAttackerMode={isAttackerMode}
-      text="Request a demo"
+      text="Request a free trial"
       isModalTrigger
     />
   </div>
