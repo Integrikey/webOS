@@ -58,11 +58,6 @@ const Index = (): React.ReactElement => {
     };
   }
 
-  const openModal = (): void => {
-    setIsAttackerMode(false);
-    setIsModalOpen(true);
-  }
-
   useEffect(() => {
     setIsMobileDevice(isMobile);
   }, []);
@@ -92,7 +87,6 @@ const Index = (): React.ReactElement => {
           activeStep={activeStep}
           backToPreviousStep={backToPreviousStep}
           isAttackerMode={isAttackerMode}
-          openModal={openModal}
           setActiveStep={setActiveStep}
           setIsAttackerMode={setIsAttackerMode}
         />
