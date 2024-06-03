@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import OutlinedButton from 'components/wrapper/OutlinedButton';
 
 type SidebarProps = {
   activeStep: number,
@@ -27,11 +26,10 @@ type SidebarStepProps = {
 };
 
 type SidebarCTAProps = {
-  isAttackerMode: boolean,
-  openModal: () => void,
+  isAttackerMode: boolean
 }
 
-export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode, openModal }) => (
+export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode }) => (
   <div
     className="grid gap-1 justify-items-start"
   >
@@ -61,8 +59,8 @@ export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode, openModal }) =
       text-sm font-medium
       `}
       href='https://signup.keystrike.com/'
-      target="_blank"
       rel="noopener noreferrer"
+      target="_blank"
     >
       Request a free trial
     </a>
