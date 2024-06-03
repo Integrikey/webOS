@@ -267,7 +267,6 @@ const Sidebar: FC<SidebarProps> = ({
       </div>
       <SidebarCTA
         isAttackerMode={isAttackerMode}
-        openModal={openModal}
       />
     </aside>
   );
