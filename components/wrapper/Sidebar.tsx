@@ -35,7 +35,7 @@ export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode }) => {
     <div
       className="grid gap-1 justify-items-start"
     >
-      <img
+      {/* <img
         alt="Icon of a shield"
         src="/images/shield.svg"
       />
@@ -45,29 +45,24 @@ export const SidebarCTA: FC<SidebarCTAProps> = ({ isAttackerMode }) => {
           font-medium
         `}
       >
-        Try Keystrike for free
-      </h2>
-      <p
-        className="text-sm text-gray-500 mb-1"
-      >
-        Contact us and get a free 30-day trial, no strings attached!
-      </p>
+        30 day free trial
+      </h2> */}
       <a
         className={`
-        px-4 py-1
-        border border-solid rounded-md
+        p-2
+        w-full
+        rounded-md
         transition-all duration-200 ease-in-out
-        border-gray-200 hover:bg-teal-700 hover:border-teal-700
+        bg-teal-700
         cursor-pointer
         ${textClasses}
-        ${!isAttackerMode && 'hover:text-white'}
-        text-sm font-medium
+        text-md text-center text-white hover:opacity-80
         `}
         href='https://signup.keystrike.com/'
         rel="noopener noreferrer"
         target="_blank"
       >
-        Request a free trial
+        Start your 30 day free trial now!
       </a>
     </div>
   )
@@ -138,7 +133,7 @@ export const SidebarStep: FC<SidebarStepProps> = ({
         {!isFutureStep &&
           <p
           className={`
-            text-gray-600
+            ${isAttackerMode ? "text-gray-400" : "text-gray-600"}
             ${isStepCompleted && "opacity-60"}
           `}
           >
